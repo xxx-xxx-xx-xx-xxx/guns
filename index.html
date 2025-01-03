@@ -3,13 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guns.lol</title>
+  <title>Court.gay</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background-color: #1c0e24;
       color: white;
+      overflow: hidden;
+    }
+
+    /* Snowflakes */
+    #snowflakes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .snowflake {
+      position: absolute;
+      top: -10px;
+      z-index: 9999;
+      pointer-events: none;
+      font-size: 24px;
+      color: white;
+      user-select: none;
+      animation: snow 10s linear infinite;
+    }
+
+    @keyframes snow {
+      0% { transform: translateY(-100px); }
+      100% { transform: translateY(100vh); }
     }
 
     /* Top Header Container */
@@ -24,6 +51,7 @@
       justify-content: center;
       align-items: center;
       position: relative;
+      transition: background-color 0.3s ease-in-out;
     }
 
     /* Navbar Inside Header */
@@ -45,6 +73,11 @@
       border-radius: 20px;
       background-color: #711ed3;
       font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar .signup:hover {
+      background-color: #5a14a1;
     }
 
     .logo {
@@ -86,6 +119,11 @@
       border: 1px solid #333;
       border-radius: 10px;
       overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .input-box:hover {
+      transform: scale(1.05);
     }
 
     .input-box input {
@@ -103,6 +141,11 @@
       color: white;
       font-weight: bold;
       cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .input-box button:hover {
+      background-color: #5a14a1;
     }
 
     /* Stats Section */
@@ -111,6 +154,7 @@
       justify-content: center;
       gap: 20px;
       margin-top: 40px;
+      animation: fadeIn 1s ease-out;
     }
 
     .stat-box {
@@ -121,12 +165,18 @@
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
       flex: 1;
       max-width: 300px;
+      transition: transform 0.3s ease;
+    }
+
+    .stat-box:hover {
+      transform: scale(1.05);
     }
 
     .stat-box h2 {
       font-size: 36px;
       margin: 0;
       color: #711ed3;
+      animation: numberAnim 2s forwards;
     }
 
     .stat-box p {
@@ -134,12 +184,31 @@
       margin: 10px 0 0;
       color: white;
     }
+
+    /* Animation for fade-in */
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* Animation for number count */
+    @keyframes numberAnim {
+      from {
+        content: "0";
+      }
+      to {
+        content: "1000"; /* Adjust this depending on the number you want */
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- Snowflakes -->
+  <div id="snowflakes"></div>
+
   <!-- Header Section -->
   <div class="header">
-    <div class="logo">guns.lol</div>
+    <div class="logo">court.gay</div>
     <div class="navbar">
       <a href="#">Hone.gg Partnership</a>
       <a href="#">Discord</a>
@@ -153,9 +222,9 @@
   <div class="main-content">
     <div class="promo">🎄 Winter Sale: Get a free exclusive Christmas badge with your purchase!</div>
     <h1>Everything you want, right here.</h1>
-    <p>guns.lol is your go-to for modern, feature-rich biolinks and fast, secure file hosting.<br>Everything you need — right here.</p>
+    <p>court.gay is your go-to for modern, feature-rich biolinks and fast, secure file hosting.<br>Everything you need — right here.</p>
     <div class="input-box">
-      <input type="text" placeholder="guns.lol/username">
+      <input type="text" placeholder="court.gay/username">
       <button>Claim Now</button>
     </div>
   </div>
@@ -178,5 +247,25 @@
       <p>Premium Users</p>
     </div>
   </div>
+
+  <script>
+    // Snowflakes effect
+    function createSnowflakes() {
+      const snowflakesContainer = document.getElementById('snowflakes');
+      const numSnowflakes = 50;
+
+      for (let i = 0; i < numSnowflakes; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.innerHTML = '❄';
+        snowflake.style.left = Math.random() * window.innerWidth + 'px';
+        snowflake.style.animationDuration = Math.random() * 5 + 5 + 's';
+        snowflake.style.animationDelay = Math.random() * 5 + 's';
+        snowflakesContainer.appendChild(snowflake);
+      }
+    }
+
+    createSnowflakes();
+  </script>
 </body>
 </html>
