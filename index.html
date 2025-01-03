@@ -43,19 +43,19 @@
     }
 
     .navbar a:hover {
-      color: #711ed3; /* Hover color */
+      color: #888; /* Gray hover color */
     }
 
     .navbar .signup {
       padding: 8px 15px;
       border-radius: 20px;
-      background-color: #711ed3;
+      background-color: #444; /* Dark gray button */
       font-weight: bold;
       transition: background-color 0.3s ease;
     }
 
     .navbar .signup:hover {
-      background-color: #5a14a1; /* Darker signup hover */
+      background-color: #333; /* Darker gray hover */
     }
 
     .logo {
@@ -69,7 +69,7 @@
 
     /* Promo Banner */
     .promo {
-      background-color: #9c62cf;
+      background-color: #444;
       padding: 5px 20px;
       border-radius: 10px;
       margin: 20px auto;
@@ -116,7 +116,7 @@
 
     .input-box button {
       padding: 10px 20px;
-      background-color: #711ed3;
+      background-color: #444; /* Dark gray button */
       border: none;
       color: white;
       font-weight: bold;
@@ -125,7 +125,7 @@
     }
 
     .input-box button:hover {
-      background-color: #5a14a1; /* Darker button hover */
+      background-color: #333; /* Darker gray button hover */
     }
 
     /* Stats Section */
@@ -155,8 +155,7 @@
     .stat-box h2 {
       font-size: 36px;
       margin: 0;
-      color: #711ed3;
-      transition: transform 0.3s ease;
+      color: white;
     }
 
     .stat-box p {
@@ -176,8 +175,7 @@
       display: inline-block;
       font-size: 36px;
       font-weight: bold;
-      color: #711ed3;
-      transition: transform 1s ease-in-out;
+      color: white;
     }
 
   </style>
@@ -231,7 +229,7 @@
       let start = 0;
       let end = target;
       let duration = 2000; // 2 seconds for animation
-      let increment = end / duration * 100;
+      let increment = end / (duration / 100); // Calculate increment value based on duration
 
       let interval = setInterval(function() {
         start += increment;
@@ -240,7 +238,7 @@
           start = end;
         }
         document.getElementById(id).innerText = Math.floor(start);
-      }, 100);
+      }, 100); // Update number every 100ms
     }
 
     // Animate numbers for statistics
