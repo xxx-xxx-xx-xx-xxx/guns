@@ -14,16 +14,18 @@
       position: relative;
     }
 
-    /* Snowflakes */
-    .snowflake {
+    /* Snowball Effect */
+    .snowball {
       position: absolute;
       top: -10px;
-      color: #fff;
-      font-size: 24px;
-      user-select: none;
+      background-color: #fff;
+      border-radius: 50%;
+      width: 10px; /* Small snowball size */
+      height: 10px;
+      opacity: 0.8;
+      animation: fall 10s linear infinite;
       pointer-events: none;
       z-index: 9999;
-      animation: fall linear infinite;
     }
 
     @keyframes fall {
@@ -205,7 +207,7 @@
   </style>
 </head>
 <body>
-  <!-- Snowflakes effect -->
+  <!-- Snowball effect -->
   <div id="snow-container"></div>
 
   <!-- Header Section -->
@@ -284,24 +286,23 @@
       document.querySelector('.main-content').style.opacity = '1';
     }, 200); // Delay for main content fade-in
 
-    // Snowflakes effect
-    function createSnowflakes() {
+    // Snowball effect
+    function createSnowballs() {
       const snowContainer = document.getElementById("snow-container");
-      const numFlakes = 100; // Number of snowflakes to generate
+      const numSnowballs = 50; // Number of snowballs to generate
 
-      for (let i = 0; i < numFlakes; i++) {
-        const snowflake = document.createElement("div");
-        snowflake.classList.add("snowflake");
-        snowflake.innerHTML = "❄"; // Snowflake character
-        snowflake.style.left = `${Math.random() * 100}vw`; // Random horizontal position
-        snowflake.style.animationDuration = `${Math.random() * 5 + 3}s`; // Random falling speed
-        snowflake.style.animationDelay = `${Math.random() * 3}s`; // Random delay
-        snowContainer.appendChild(snowflake);
+      for (let i = 0; i < numSnowballs; i++) {
+        const snowball = document.createElement("div");
+        snowball.classList.add("snowball");
+        snowball.style.left = `${Math.random() * 100}vw`; // Random horizontal position
+        snowball.style.animationDuration = `${Math.random() * 15 + 10}s`; // Slow falling speed
+        snowball.style.animationDelay = `${Math.random() * 3}s`; // Random delay
+        snowContainer.appendChild(snowball);
       }
     }
 
-    // Create the snowflakes
-    createSnowflakes();
+    // Create the snowballs
+    createSnowballs();
   </script>
 </body>
 </html>
