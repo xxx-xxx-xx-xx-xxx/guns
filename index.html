@@ -10,41 +10,50 @@
       font-family: Arial, sans-serif;
       background-color: #1c0e24;
       color: white;
-      text-align: center;
     }
 
-    /* Navbar */
+    /* Top Header Container */
+    .header {
+      background-color: #000;
+      border-radius: 40px;
+      width: 90%;
+      max-width: 1200px;
+      margin: 20px auto 0;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    /* Navbar Inside Header */
     .navbar {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      padding: 10px 20px;
-      background-color: #000;
+      gap: 30px;
     }
 
-    .navbar .logo {
-      font-size: 20px;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-    }
-
-    .navbar .menu {
-      display: flex;
-      gap: 20px;
-    }
-
-    .navbar .menu a {
+    .navbar a {
       text-decoration: none;
       color: white;
       font-size: 14px;
     }
 
-    .navbar .menu .signup {
+    .navbar .signup {
       padding: 8px 15px;
       border-radius: 20px;
       background-color: #711ed3;
       font-weight: bold;
+    }
+
+    .logo {
+      position: absolute;
+      left: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
     }
 
     /* Promo Banner */
@@ -54,10 +63,12 @@
       border-radius: 10px;
       margin: 20px auto;
       display: inline-block;
+      text-align: center;
     }
 
     /* Main Content */
     .main-content {
+      text-align: center;
       padding: 50px 20px;
     }
 
@@ -75,7 +86,6 @@
       border: 1px solid #333;
       border-radius: 10px;
       overflow: hidden;
-      margin: 0 auto;
     }
 
     .input-box input {
@@ -97,10 +107,10 @@
   </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <div class="navbar">
+  <!-- Header Section -->
+  <div class="header">
     <div class="logo">guns.lol</div>
-    <div class="menu">
+    <div class="navbar">
       <a href="#">Hone.gg Partnership</a>
       <a href="#">Discord</a>
       <a href="#">Pricing</a>
