@@ -25,7 +25,6 @@
       justify-content: center;
       align-items: center;
       position: relative;
-      transition: background-color 0.3s ease-in-out;
     }
 
     /* Navbar Inside Header */
@@ -139,7 +138,7 @@
     }
 
     .stat-box {
-      background-color: #2a1836;
+      background-color: #333;
       border-radius: 20px;
       padding: 20px 30px;
       text-align: center;
@@ -172,6 +171,15 @@
       100% { opacity: 1; }
     }
 
+    /* Smooth number animation */
+    .number {
+      display: inline-block;
+      font-size: 36px;
+      font-weight: bold;
+      color: #711ed3;
+      transition: transform 1s ease-in-out;
+    }
+
   </style>
 </head>
 <body>
@@ -202,28 +210,43 @@
   <div class="stats-section">
     <!-- Profile Views -->
     <div class="stat-box">
-      <h2>1,245</h2>
+      <h2><span class="number" id="profile-views">0</span></h2>
       <p>Profile Views</p>
     </div>
     <!-- Total Registered Users -->
     <div class="stat-box">
-      <h2>3,528</h2>
+      <h2><span class="number" id="registered-users">0</span></h2>
       <p>Registered Users</p>
     </div>
     <!-- Premium Users -->
     <div class="stat-box">
-      <h2>1,027</h2>
+      <h2><span class="number" id="premium-users">0</span></h2>
       <p>Premium Users</p>
     </div>
   </div>
 
   <script>
     // Smooth Animations on Stats
-    document.querySelectorAll('.stat-box h2').forEach((el, index) => {
-      setTimeout(() => {
-        el.style.transform = 'translateY(0)';
-      }, index * 200); // Delay for each stat
-    });
+    function animateNumber(id, target) {
+      let start = 0;
+      let end = target;
+      let duration = 2000; // 2 seconds for animation
+      let increment = end / duration * 100;
+
+      let interval = setInterval(function() {
+        start += increment;
+        if (start >= end) {
+          clearInterval(interval);
+          start = end;
+        }
+        document.getElementById(id).innerText = Math.floor(start);
+      }, 100);
+    }
+
+    // Animate numbers for statistics
+    animateNumber("profile-views", 1245);
+    animateNumber("registered-users", 3528);
+    animateNumber("premium-users", 1027);
 
     // Fade-in effect for main content
     setTimeout(() => {
