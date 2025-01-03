@@ -213,17 +213,17 @@
   <div class="stats-section">
     <!-- Profile Views -->
     <div class="stat-box">
-      <h2><span class="number" id="profile-views">0</span></h2>
+      <h2><span class="number" id="profile-views">N/A</span></h2>
       <p>Profile Views</p>
     </div>
     <!-- Total Registered Users -->
     <div class="stat-box">
-      <h2><span class="number" id="registered-users">0</span></h2>
+      <h2><span class="number" id="registered-users">N/A</span></h2>
       <p>Registered Users</p>
     </div>
     <!-- Premium Users -->
     <div class="stat-box">
-      <h2><span class="number" id="premium-users">0</span></h2>
+      <h2><span class="number" id="premium-users">N/A</span></h2>
       <p>Premium Users</p>
     </div>
   </div>
@@ -233,7 +233,7 @@
     function animateNumber(id, target) {
       let start = 0;
       let end = target;
-      let duration = 2000; // 2 seconds for animation
+      let duration = 4000; // Slow down the animation duration to 4 seconds
       let increment = end / (duration / 100); // Calculate increment value based on duration
 
       function update() {
@@ -251,9 +251,11 @@
     }
 
     // Animate numbers for statistics
-    animateNumber("profile-views", 1245);
-    animateNumber("registered-users", 3528);
-    animateNumber("premium-users", 1027);
+    setTimeout(() => {
+      animateNumber("profile-views", 1245);
+      animateNumber("registered-users", 3528);
+      animateNumber("premium-users", 1027);
+    }, 500); // Delay the animation start to let the page load
 
     // Main Content Fade-In (delayed for smoothness)
     setTimeout(() => {
