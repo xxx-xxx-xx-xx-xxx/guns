@@ -17,20 +17,35 @@
     /* Snowball Effect */
     .snowball {
       position: absolute;
-      top: -10px;
       background-color: #fff;
       border-radius: 50%;
       width: 10px; /* Small snowball size */
       height: 10px;
       opacity: 0.8;
-      animation: fall 10s linear infinite;
+      animation: fall 4s ease-in forwards, fadeOut 1s ease-out forwards;
       pointer-events: none;
       z-index: 9999;
     }
 
+    /* Snowball Falling Effect */
     @keyframes fall {
-      to {
-        transform: translateY(100vh);
+      0% {
+        top: -10px;
+        opacity: 0.8;
+      }
+      100% {
+        top: 90vh;
+        opacity: 0; /* Fade out when reaching the ground */
+      }
+    }
+
+    /* Snowball Fade Out */
+    @keyframes fadeOut {
+      0% {
+        opacity: 0.8;
+      }
+      100% {
+        opacity: 0;
       }
     }
 
@@ -295,13 +310,13 @@
         const snowball = document.createElement("div");
         snowball.classList.add("snowball");
         snowball.style.left = `${Math.random() * 100}vw`; // Random horizontal position
-        snowball.style.animationDuration = `${Math.random() * 15 + 10}s`; // Slow falling speed
-        snowball.style.animationDelay = `${Math.random() * 3}s`; // Random delay
+        snowball.style.animationDuration = `${Math.random() * 4 + 2}s`; // Fast fall time between 2 to 6 seconds
+        snowball.style.animationDelay = `${Math.random() * 3}s`; // Random delay for each snowball
         snowContainer.appendChild(snowball);
       }
     }
 
-    // Create the snowballs
+    // Create the snowballs instantly on page load
     createSnowballs();
   </script>
 </body>
